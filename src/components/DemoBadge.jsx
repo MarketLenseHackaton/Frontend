@@ -1,14 +1,29 @@
-import { USE_MOCKS } from "../api/client";
+import { useEffect, useState } from "react";
+import { api, API_TARGET, API_URL } from "../api/client";
 
-const SHOW = String(import.meta.env.VITE_SHOW_DEMO_BADGE ?? "true").toLowerCase() === "true";
+const COLORS = { checking: "#9AA39D", online: "#1B7F4C", offline: "#B3392F" };
 
-/** "Demonstration data" badge, shown on every screen until real data is in. */
-export default function DemoBadge({ children = "Demonstration data" }) {
-  if (!SHOW) return null;
+/**
+ * Small server status: which backend we're on and whether it answers.
+ * Pings GET /api/health once when the page opens.
+ */
+export default function DemoBadge() {
+  const [up, setUp] = useState(null); // null = checking, true/false = answer
+
+  useEffect(() => {
+    let alive = true;
+    api.health().then(() => alive && setUp(true)).catch(() => alive && setUp(false));
+    return () => { alive = false; };
+  }, []);
+
+  const state = up === null ? "checking" : up ? "online" : "offline";
   return (
-    <span className="demo-badge" title={USE_MOCKS ? "Using mock JSON (VITE_USE_MOCKS=true)" : "Connected to the backend"}>
-      {children}
-      {USE_MOCKS && <em> · mocks</em>}
+    <span
+      title={API_URL}
+      style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, color: "#66746C", whiteSpace: "nowrap" }}
+    >
+      <i style={{ width: 8, height: 8, borderRadius: "50%", background: COLORS[state], display: "inline-block" }} />
+      {API_TARGET === "live" ? "Live server" : "Local server"} · {state}
     </span>
   );
 }

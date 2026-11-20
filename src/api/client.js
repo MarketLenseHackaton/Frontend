@@ -5,14 +5,30 @@
 // Every function below maps 1-to-1 to a FastAPI route under /api.
 // Field names are passed through exactly as the backend sends them.
 //
-//   VITE_API_URL   = base URL of the backend, e.g. http://localhost:8000/api
-//   VITE_USE_MOCKS = "true"  -> answer from src/mocks (no backend needed)
-//                    "false" -> call the real backend
+// Which server it calls is set in .env:
+//   VITE_API_TARGET    = "local" or "live"
+//   VITE_API_URL_LOCAL = e.g. http://localhost:8080/api
+//   VITE_API_URL_LIVE  = e.g. https://marketlens-api.onrender.com/api
 // ─────────────────────────────────────────────────────────────────────────────
-import { mockBackend } from "./mockBackend";
 
-export const API_URL = (import.meta.env.VITE_API_URL || "http://localhost:8000/api").replace(/\/+$/, "");
-export const USE_MOCKS = String(import.meta.env.VITE_USE_MOCKS ?? "true").toLowerCase() === "true";
+const env = import.meta.env;
+
+export const API_TARGET = String(env.VITE_API_TARGET || "local").trim().toLowerCase() === "live" ? "live" : "local";
+
+const URLS = {
+  local: env.VITE_API_URL_LOCAL || "http://localhost:8080/api",
+  live: env.VITE_API_URL_LIVE || "",
+};
+
+export const API_URL = String(URLS[API_TARGET]).replace(/\/+$/, "");
+
+if (!API_URL) {
+  // Shows in the browser console so it's obvious why nothing loads.
+  console.error(`[MarketLens] VITE_API_URL_${API_TARGET.toUpperCase()} is empty. Set it in .env and restart npm run dev.`);
+} else {
+  console.info(`[MarketLens] Using ${API_TARGET} backend: ${API_URL}`);
+}
+
 const TIMEOUT_MS = 15000;
 
 // Friendly text for every error code the backend can send.
@@ -23,7 +39,7 @@ const FRIENDLY = {
   validation_error: "Some of the inputs were not accepted. Check them and try again.",
   bad_request: "That request was not accepted. Check your inputs and try again.",
   server_error: "The server had a problem. Please try again in a moment.",
-  network_error: "Can't reach the MarketLens server. Check that the backend is running.",
+  network_error: `Can't reach the MarketLens server (${API_TARGET}). Check that the backend is running.`,
   timeout: "The server took too long to answer. Please try again.",
 };
 
@@ -44,14 +60,6 @@ export function friendlyError(err) {
 }
 
 async function request(method, path, body, { signal } = {}) {
-  if (USE_MOCKS) {
-    try {
-      return await mockBackend(method, path, body);
-    } catch (e) {
-      throw new ApiError(e.code || "server_error", e.message, e.status || 500);
-    }
-  }
-
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort("timeout"), TIMEOUT_MS);
   if (signal) {
@@ -104,7 +112,7 @@ export const api = {
   products: () => get("/products"),
 
   /**
-   * POST /api/rank — the main call. Your AI module's rank() answers this.
+   * POST /api/rank — the main call. The AI module's rank() answers this.
    * body: { product_id, weights: { demand, health, affordability } (1|2|3), lens: "protein"|"cancer"|"both", fair_share }
    * → { ranked[], full[], equity, meta }
    */
