@@ -1,0 +1,311 @@
+{
+  "ranked": [
+    {
+      "rank": 1,
+      "id": "KAN-FAM-OPM",
+      "name": "Kano",
+      "area_type": "city",
+      "is_rural": false,
+      "segment": "Families",
+      "channel": "open_market",
+      "scores": {
+        "demand": 75,
+        "health": 56,
+        "affordability": 78,
+        "total": 70,
+        "low": 62,
+        "high": 77
+      },
+      "confidence": {
+        "pct": 80,
+        "label": "high"
+      },
+      "capacity": {
+        "registered": 3,
+        "capacity": 6,
+        "slots_left": 3,
+        "status": "open"
+      },
+      "explanation": {
+        "demand": "Many families already buy awara and beans; interviews show interest.",
+        "health": "High protein deficiency reported. No cancer registry here; processed-meat intake is low.",
+        "affordability": "Beef and chicken cost far more than the national average.",
+        "uncertain": "Protein deficiency is scaled from a national survey.",
+        "test_first": "Sell 50 trial packs at 2 market stalls for 2 weeks; count repeat buyers."
+      },
+      "labels": {
+        "demand": "estimated",
+        "health": "estimated",
+        "affordability": "measured"
+      },
+      "fair_share_added": false
+    },
+    {
+      "rank": 2,
+      "id": "ABJ-PRO-SUP",
+      "name": "Abuja",
+      "area_type": "big_city",
+      "is_rural": false,
+      "segment": "Working professionals",
+      "channel": "supermarket",
+      "scores": {
+        "demand": 80,
+        "health": 61,
+        "affordability": 55,
+        "total": 67,
+        "low": 58,
+        "high": 75
+      },
+      "confidence": {
+        "pct": 74,
+        "label": "high"
+      },
+      "capacity": {
+        "registered": 5,
+        "capacity": 6,
+        "slots_left": 1,
+        "status": "nearly_full"
+      },
+      "explanation": {
+        "demand": "Working professionals already buy packaged foods in supermarkets.",
+        "health": "Hospital-based cancer data and moderate protein deficiency reported.",
+        "affordability": "Meat prices are close to the national average.",
+        "uncertain": "Only hospital-based cancer data exists for Abuja.",
+        "test_first": "Place 1 shelf facing in 1 supermarket for 2 weeks; track units sold."
+      },
+      "labels": {
+        "demand": "estimated",
+        "health": "estimated",
+        "affordability": "measured"
+      },
+      "fair_share_added": false
+    },
+    {
+      "rank": 3,
+      "id": "KAD-FAM-OPM",
+      "name": "Kaduna",
+      "area_type": "city",
+      "is_rural": false,
+      "segment": "Families",
+      "channel": "open_market",
+      "scores": {
+        "demand": 68,
+        "health": 56,
+        "affordability": 72,
+        "total": 66,
+        "low": 57,
+        "high": 74
+      },
+      "confidence": {
+        "pct": 70,
+        "label": "high"
+      },
+      "capacity": {
+        "registered": 2,
+        "capacity": 5,
+        "slots_left": 3,
+        "status": "open"
+      },
+      "explanation": {
+        "demand": "Families already buy familiar local protein foods.",
+        "health": "High protein deficiency reported; no cancer registry found.",
+        "affordability": "Meat is expensive compared with the national average.",
+        "uncertain": "Demand comes from a small set of interviews.",
+        "test_first": "Interview 20 shoppers and test a small batch."
+      },
+      "labels": {
+        "demand": "estimated",
+        "health": "estimated",
+        "affordability": "measured"
+      },
+      "fair_share_added": false
+    },
+    {
+      "rank": 4,
+      "id": "IBA-FAM-SUP",
+      "name": "Ibadan",
+      "area_type": "city",
+      "is_rural": false,
+      "segment": "Families",
+      "channel": "supermarket",
+      "scores": {
+        "demand": 66,
+        "health": 64,
+        "affordability": 64,
+        "total": 65,
+        "low": 57,
+        "high": 72
+      },
+      "confidence": {
+        "pct": 66,
+        "label": "medium"
+      },
+      "capacity": {
+        "registered": 2,
+        "capacity": 5,
+        "slots_left": 3,
+        "status": "open"
+      },
+      "explanation": {
+        "demand": "Families shop in both supermarkets and markets.",
+        "health": "Both health needs show here; Ibadan has a population-based cancer registry.",
+        "affordability": "Meat prices are a little above the national average.",
+        "uncertain": "Processed-meat intake is estimated from retail data.",
+        "test_first": "Run a two-week trial with 1 supermarket and 1 market stall."
+      },
+      "labels": {
+        "demand": "estimated",
+        "health": "estimated",
+        "affordability": "measured"
+      },
+      "fair_share_added": false
+    },
+    {
+      "rank": 5,
+      "id": "PHC-YPR-RES",
+      "name": "Port Harcourt",
+      "area_type": "big_city",
+      "is_rural": false,
+      "segment": "Young professionals",
+      "channel": "restaurant",
+      "scores": {
+        "demand": 70,
+        "health": 56,
+        "affordability": 60,
+        "total": 63,
+        "low": 54,
+        "high": 71
+      },
+      "confidence": {
+        "pct": 64,
+        "label": "medium"
+      },
+      "capacity": {
+        "registered": 1,
+        "capacity": 5,
+        "slots_left": 4,
+        "status": "open"
+      },
+      "explanation": {
+        "demand": "Young professionals eat out often; fast-food partners can introduce the product.",
+        "health": "Moderate protein deficiency; the health label is a team assumption.",
+        "affordability": "Meat prices are around the national average.",
+        "uncertain": "The health-need figure is assumed, not measured.",
+        "test_first": "Offer one soy-chunk dish for 5 days at 1 restaurant; compare plates sold."
+      },
+      "labels": {
+        "demand": "estimated",
+        "health": "assumed",
+        "affordability": "measured"
+      },
+      "fair_share_added": false
+    },
+    {
+      "rank": 6,
+      "id": "BAU-HHD-VIL",
+      "name": "Rural Bauchi",
+      "area_type": "rural",
+      "is_rural": true,
+      "segment": "Farming households",
+      "channel": "village_shop",
+      "scores": {
+        "demand": 50,
+        "health": 52,
+        "affordability": 85,
+        "total": 61,
+        "low": 50,
+        "high": 70
+      },
+      "confidence": {
+        "pct": 55,
+        "label": "medium"
+      },
+      "capacity": {
+        "registered": 0,
+        "capacity": 3,
+        "slots_left": 3,
+        "status": "open"
+      },
+      "explanation": {
+        "demand": "A rural market with no established businesses yet.",
+        "health": "Highest protein deficiency in the dataset.",
+        "affordability": "Meat is very expensive for households here.",
+        "uncertain": "Demand for rural places is a team assumption.",
+        "test_first": "Conduct a field visit and a 20-person tasting before stocking."
+      },
+      "labels": {
+        "demand": "assumed",
+        "health": "estimated",
+        "affordability": "estimated"
+      },
+      "fair_share_added": false
+    },
+    {
+      "rank": 7,
+      "id": "SOK-HHD-VIL",
+      "name": "Rural Sokoto",
+      "area_type": "rural",
+      "is_rural": true,
+      "segment": "Households",
+      "channel": "village_shop",
+      "scores": {
+        "demand": 44,
+        "health": 49,
+        "affordability": 83,
+        "total": 57,
+        "low": 46,
+        "high": 66
+      },
+      "confidence": {
+        "pct": 38,
+        "label": "low"
+      },
+      "capacity": {
+        "registered": 0,
+        "capacity": 3,
+        "slots_left": 3,
+        "status": "open"
+      },
+      "explanation": {
+        "demand": "A rural market worth validating through direct customer research.",
+        "health": "High protein deficiency reported.",
+        "affordability": "Meat is very expensive for households here.",
+        "uncertain": "Demand and population are both estimates.",
+        "test_first": "Run a 20-person taste-and-price survey before spending on stock."
+      },
+      "labels": {
+        "demand": "assumed",
+        "health": "estimated",
+        "affordability": "estimated"
+      },
+      "fair_share_added": false
+    }
+  ],
+  "full": [
+    {
+      "id": "LAG-FAM-SUP",
+      "name": "Lagos",
+      "segment": "Families",
+      "registered": 8,
+      "capacity": 8
+    },
+    {
+      "id": "ABJ-STU-CAN",
+      "name": "Abuja",
+      "segment": "Students",
+      "registered": 4,
+      "capacity": 4
+    }
+  ],
+  "equity": {
+    "rural_in_top5": 0,
+    "target": 2,
+    "balanced": false
+  },
+  "meta": {
+    "n_simulations": 1000,
+    "seed": 42,
+    "data_as_of": "2026-03",
+    "lens": "both"
+  }
+}

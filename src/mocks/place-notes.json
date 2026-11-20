@@ -1,0 +1,11 @@
+{
+  "KAN-FAM-OPM": "Major northern city. No cancer registry covers Kano, so the cancer lens shows no data.",
+  "ABJ-PRO-SUP": "Capital territory. Hospital-based cancer registry data only.",
+  "KAD-FAM-OPM": "Northern city with strong open-market trade. No cancer registry found.",
+  "IBA-FAM-SUP": "Population-based cancer registry available (Ibadan).",
+  "PHC-YPR-RES": "Southern city; health-need label is a team assumption pending better data.",
+  "BAU-HHD-VIL": "Rural area. Population is an estimate; no alt-protein businesses yet.",
+  "SOK-HHD-VIL": "Rural area. Population is an estimate; no alt-protein businesses yet.",
+  "LAG-FAM-SUP": "Largest city. Already at capacity for new businesses.",
+  "ABJ-STU-CAN": "Campus canteens. Already at capacity for new businesses."
+}

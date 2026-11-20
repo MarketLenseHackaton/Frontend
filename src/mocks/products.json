@@ -1,0 +1,27 @@
+[
+  {
+    "id": "soy_chunk",
+    "name": "Soy–cowpea protein chunk",
+    "uses": [
+      "stews",
+      "jollof",
+      "suya-style"
+    ]
+  },
+  {
+    "id": "awara",
+    "name": "Awara (soy tofu)",
+    "uses": [
+      "stews",
+      "snacks"
+    ]
+  },
+  {
+    "id": "soy_milk",
+    "name": "Soy milk",
+    "uses": [
+      "breakfast",
+      "drinks"
+    ]
+  }
+]

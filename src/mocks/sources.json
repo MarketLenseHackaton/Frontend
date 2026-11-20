@@ -1,0 +1,74 @@
+[
+  {
+    "id": "S01",
+    "title": "Selected Food Prices Watch",
+    "publisher": "National Bureau of Statistics (NBS)",
+    "url": "https://nigerianstat.gov.ng/",
+    "year": "2026",
+    "level": "state",
+    "used_for": "Meat and processed-meat prices (affordability)"
+  },
+  {
+    "id": "S02",
+    "title": "Nigeria Demographic and Health Survey (NDHS)",
+    "publisher": "National Population Commission / DHS Program",
+    "url": "https://dhsprogram.com/",
+    "year": "2018",
+    "level": "state",
+    "used_for": "Stunting, nutrition indicators"
+  },
+  {
+    "id": "S03",
+    "title": "Nigerian Protein Deficiency Report",
+    "publisher": "Ipsos",
+    "url": "https://www.ipsos.com/",
+    "year": "2020",
+    "level": "national",
+    "used_for": "Protein deficiency context"
+  },
+  {
+    "id": "S04",
+    "title": "IARC Monographs Vol. 114: Red meat and processed meat",
+    "publisher": "WHO / IARC",
+    "url": "https://monographs.iarc.who.int/",
+    "year": "2015",
+    "level": "national",
+    "used_for": "Processed meat Group 1, red meat Group 2A"
+  },
+  {
+    "id": "S05",
+    "title": "Cancer registry reports (Ibadan, Abuja, Lagos)",
+    "publisher": "Nigerian cancer registries",
+    "url": "",
+    "year": "[YEAR]",
+    "level": "city",
+    "used_for": "Colorectal cancer rates"
+  },
+  {
+    "id": "S06",
+    "title": "Official public alerts and recalls",
+    "publisher": "NAFDAC",
+    "url": "https://nafdac.gov.ng/",
+    "year": "2026",
+    "level": "national",
+    "used_for": "Food-safety alerts and recalls"
+  },
+  {
+    "id": "S07",
+    "title": "MarketLens interviews + surveys",
+    "publisher": "MarketLens team",
+    "url": "",
+    "year": "2026",
+    "level": "local",
+    "used_for": "Demand signal, awareness"
+  },
+  {
+    "id": "S08",
+    "title": "Team judgement",
+    "publisher": "MarketLens team",
+    "url": "",
+    "year": "2026",
+    "level": "local",
+    "used_for": "Capacity per place, channel readiness"
+  }
+]

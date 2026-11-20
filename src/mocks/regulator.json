@@ -1,0 +1,143 @@
+{
+  "counts": {
+    "businesses": 25,
+    "places": 9,
+    "open": 6,
+    "nearly_full": 1,
+    "full": 2
+  },
+  "equity": {
+    "score": 16,
+    "by_area": [
+      {
+        "area": "big_city",
+        "business_pct": 72,
+        "need_pct": 30
+      },
+      {
+        "area": "city",
+        "business_pct": 28,
+        "need_pct": 38
+      },
+      {
+        "area": "rural",
+        "business_pct": 0,
+        "need_pct": 32
+      }
+    ]
+  },
+  "places": [
+    {
+      "id": "LAG-FAM-SUP",
+      "name": "Lagos · Families",
+      "area_type": "big_city",
+      "health_need": "cancer",
+      "demand": 88,
+      "registered": 8,
+      "capacity": 8,
+      "suggested_capacity": 8,
+      "status": "full"
+    },
+    {
+      "id": "ABJ-PRO-SUP",
+      "name": "Abuja · Working professionals",
+      "area_type": "big_city",
+      "health_need": "cancer",
+      "demand": 80,
+      "registered": 5,
+      "capacity": 6,
+      "suggested_capacity": 6,
+      "status": "nearly_full"
+    },
+    {
+      "id": "ABJ-STU-CAN",
+      "name": "Abuja · Students",
+      "area_type": "big_city",
+      "health_need": "protein",
+      "demand": 72,
+      "registered": 4,
+      "capacity": 4,
+      "suggested_capacity": 4,
+      "status": "full"
+    },
+    {
+      "id": "PHC-YPR-RES",
+      "name": "Port Harcourt · Young professionals",
+      "area_type": "big_city",
+      "health_need": "cancer",
+      "demand": 70,
+      "registered": 1,
+      "capacity": 5,
+      "suggested_capacity": 5,
+      "status": "open"
+    },
+    {
+      "id": "KAN-FAM-OPM",
+      "name": "Kano · Families",
+      "area_type": "city",
+      "health_need": "protein",
+      "demand": 75,
+      "registered": 3,
+      "capacity": 6,
+      "suggested_capacity": 6,
+      "status": "open"
+    },
+    {
+      "id": "IBA-FAM-SUP",
+      "name": "Ibadan · Families",
+      "area_type": "city",
+      "health_need": "both",
+      "demand": 66,
+      "registered": 2,
+      "capacity": 5,
+      "suggested_capacity": 5,
+      "status": "open"
+    },
+    {
+      "id": "KAD-FAM-OPM",
+      "name": "Kaduna · Families",
+      "area_type": "city",
+      "health_need": "protein",
+      "demand": 68,
+      "registered": 2,
+      "capacity": 5,
+      "suggested_capacity": 5,
+      "status": "open"
+    },
+    {
+      "id": "BAU-HHD-VIL",
+      "name": "Rural Bauchi · Farming households",
+      "area_type": "rural",
+      "health_need": "protein",
+      "demand": 50,
+      "registered": 0,
+      "capacity": 3,
+      "suggested_capacity": 3,
+      "status": "open"
+    },
+    {
+      "id": "SOK-HHD-VIL",
+      "name": "Rural Sokoto · Households",
+      "area_type": "rural",
+      "health_need": "protein",
+      "demand": 44,
+      "registered": 0,
+      "capacity": 3,
+      "suggested_capacity": 3,
+      "status": "open"
+    }
+  ],
+  "missing_nafdac": 4,
+  "nafdac_notices": [
+    {
+      "title": "[Official NAFDAC notice or recall title]",
+      "date": "2026-02-10",
+      "url": "https://nafdac.gov.ng/"
+    },
+    {
+      "title": "[Official NAFDAC guidance title]",
+      "date": "2026-01-22",
+      "url": "https://nafdac.gov.ng/"
+    }
+  ]
+}

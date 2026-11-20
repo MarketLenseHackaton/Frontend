@@ -1,0 +1,389 @@
+{
+  "KAN-FAM-OPM": {
+    "place_id": "KAN-FAM-OPM",
+    "awareness_gap": "medium",
+    "lens": "protein",
+    "message": "Good protein for every pot.",
+    "activities": [
+      {
+        "title": "Market tasting stand",
+        "description": "Cook stew with soy chunks at the stall; give free tastes.",
+        "effort": "low"
+      },
+      {
+        "title": "Partner with food vendors",
+        "description": "Supply 2 buka owners for a week; they serve it in one dish.",
+        "effort": "low"
+      },
+      {
+        "title": "Hausa recipe cards",
+        "description": "Simple pictures + Hausa text, handed out with every pack.",
+        "effort": "very_low"
+      }
+    ],
+    "recipes": [
+      {
+        "dish": "Stew and efo riro",
+        "steps": "Soak chunks 10 min, squeeze, fry in pepper base, simmer 15 min."
+      },
+      {
+        "dish": "Jollof rice",
+        "steps": "Add soaked chunks with the tomato base so they take the flavour."
+      },
+      {
+        "dish": "Suya-style skewers",
+        "steps": "Coat in yaji spice and oil, grill until crisp at the edges."
+      }
+    ],
+    "feedback_summary": {
+      "tasters": 0,
+      "liked_pct": null,
+      "can_cook_pct": null,
+      "would_buy_pct": null
+    }
+  },
+  "ABJ-PRO-SUP": {
+    "place_id": "ABJ-PRO-SUP",
+    "awareness_gap": "medium",
+    "lens": "cancer",
+    "message": "Good protein for every pot.",
+    "activities": [
+      {
+        "title": "In-store tasting",
+        "description": "Two Saturday tastings near the meat aisle.",
+        "effort": "low"
+      },
+      {
+        "title": "Recipe card at the shelf",
+        "description": "A simple card showing three familiar dishes.",
+        "effort": "very_low"
+      },
+      {
+        "title": "Bundle with rice",
+        "description": "A small discount when bought with rice or tomato paste.",
+        "effort": "medium"
+      }
+    ],
+    "recipes": [
+      {
+        "dish": "Stew and efo riro",
+        "steps": "Soak chunks 10 min, squeeze, fry in pepper base, simmer 15 min."
+      },
+      {
+        "dish": "Jollof rice",
+        "steps": "Add soaked chunks with the tomato base so they take the flavour."
+      },
+      {
+        "dish": "Suya-style skewers",
+        "steps": "Coat in yaji spice and oil, grill until crisp at the edges."
+      }
+    ],
+    "feedback_summary": {
+      "tasters": 0,
+      "liked_pct": null,
+      "can_cook_pct": null,
+      "would_buy_pct": null
+    }
+  },
+  "KAD-FAM-OPM": {
+    "place_id": "KAD-FAM-OPM",
+    "awareness_gap": "medium",
+    "lens": "protein",
+    "message": "Good protein for every pot.",
+    "activities": [
+      {
+        "title": "Market tasting stand",
+        "description": "Cook stew with soy chunks at the stall; give free tastes.",
+        "effort": "low"
+      },
+      {
+        "title": "Partner with food vendors",
+        "description": "Supply 2 buka owners for a week; they serve it in one dish.",
+        "effort": "low"
+      },
+      {
+        "title": "Hausa recipe cards",
+        "description": "Simple pictures + Hausa text, handed out with every pack.",
+        "effort": "very_low"
+      }
+    ],
+    "recipes": [
+      {
+        "dish": "Stew and efo riro",
+        "steps": "Soak chunks 10 min, squeeze, fry in pepper base, simmer 15 min."
+      },
+      {
+        "dish": "Jollof rice",
+        "steps": "Add soaked chunks with the tomato base so they take the flavour."
+      },
+      {
+        "dish": "Suya-style skewers",
+        "steps": "Coat in yaji spice and oil, grill until crisp at the edges."
+      }
+    ],
+    "feedback_summary": {
+      "tasters": 0,
+      "liked_pct": null,
+      "can_cook_pct": null,
+      "would_buy_pct": null
+    }
+  },
+  "IBA-FAM-SUP": {
+    "place_id": "IBA-FAM-SUP",
+    "awareness_gap": "medium",
+    "lens": "both",
+    "message": "Good protein for every pot.",
+    "activities": [
+      {
+        "title": "In-store tasting",
+        "description": "Two Saturday tastings near the meat aisle.",
+        "effort": "low"
+      },
+      {
+        "title": "Recipe card at the shelf",
+        "description": "A simple card showing three familiar dishes.",
+        "effort": "very_low"
+      },
+      {
+        "title": "Bundle with rice",
+        "description": "A small discount when bought with rice or tomato paste.",
+        "effort": "medium"
+      }
+    ],
+    "recipes": [
+      {
+        "dish": "Stew and efo riro",
+        "steps": "Soak chunks 10 min, squeeze, fry in pepper base, simmer 15 min."
+      },
+      {
+        "dish": "Jollof rice",
+        "steps": "Add soaked chunks with the tomato base so they take the flavour."
+      },
+      {
+        "dish": "Suya-style skewers",
+        "steps": "Coat in yaji spice and oil, grill until crisp at the edges."
+      }
+    ],
+    "feedback_summary": {
+      "tasters": 0,
+      "liked_pct": null,
+      "can_cook_pct": null,
+      "would_buy_pct": null
+    }
+  },
+  "PHC-YPR-RES": {
+    "place_id": "PHC-YPR-RES",
+    "awareness_gap": "medium",
+    "lens": "cancer",
+    "message": "Good protein for every pot.",
+    "activities": [
+      {
+        "title": "Market tasting stand",
+        "description": "Cook stew with soy chunks at the stall; give free tastes.",
+        "effort": "low"
+      },
+      {
+        "title": "Partner with food vendors",
+        "description": "Supply 2 buka owners for a week; they serve it in one dish.",
+        "effort": "low"
+      },
+      {
+        "title": "Hausa recipe cards",
+        "description": "Simple pictures + Hausa text, handed out with every pack.",
+        "effort": "very_low"
+      }
+    ],
+    "recipes": [
+      {
+        "dish": "Stew and efo riro",
+        "steps": "Soak chunks 10 min, squeeze, fry in pepper base, simmer 15 min."
+      },
+      {
+        "dish": "Jollof rice",
+        "steps": "Add soaked chunks with the tomato base so they take the flavour."
+      },
+      {
+        "dish": "Suya-style skewers",
+        "steps": "Coat in yaji spice and oil, grill until crisp at the edges."
+      }
+    ],
+    "feedback_summary": {
+      "tasters": 0,
+      "liked_pct": null,
+      "can_cook_pct": null,
+      "would_buy_pct": null
+    }
+  },
+  "BAU-HHD-VIL": {
+    "place_id": "BAU-HHD-VIL",
+    "awareness_gap": "high",
+    "lens": "protein",
+    "message": "Good protein for every pot.",
+    "activities": [
+      {
+        "title": "Village tasting day",
+        "description": "Cook with a respected local cook; free tastes after market day.",
+        "effort": "low"
+      },
+      {
+        "title": "Village shop starter pack",
+        "description": "Give 1 shop 20 packs on sale-or-return for 2 weeks.",
+        "effort": "low"
+      },
+      {
+        "title": "Picture recipe cards",
+        "description": "Pictures first, little text, in the local language.",
+        "effort": "very_low"
+      }
+    ],
+    "recipes": [
+      {
+        "dish": "Stew and efo riro",
+        "steps": "Soak chunks 10 min, squeeze, fry in pepper base, simmer 15 min."
+      },
+      {
+        "dish": "Jollof rice",
+        "steps": "Add soaked chunks with the tomato base so they take the flavour."
+      },
+      {
+        "dish": "Suya-style skewers",
+        "steps": "Coat in yaji spice and oil, grill until crisp at the edges."
+      }
+    ],
+    "feedback_summary": {
+      "tasters": 0,
+      "liked_pct": null,
+      "can_cook_pct": null,
+      "would_buy_pct": null
+    }
+  },
+  "SOK-HHD-VIL": {
+    "place_id": "SOK-HHD-VIL",
+    "awareness_gap": "high",
+    "lens": "protein",
+    "message": "Good protein for every pot.",
+    "activities": [
+      {
+        "title": "Village tasting day",
+        "description": "Cook with a respected local cook; free tastes after market day.",
+        "effort": "low"
+      },
+      {
+        "title": "Village shop starter pack",
+        "description": "Give 1 shop 20 packs on sale-or-return for 2 weeks.",
+        "effort": "low"
+      },
+      {
+        "title": "Picture recipe cards",
+        "description": "Pictures first, little text, in the local language.",
+        "effort": "very_low"
+      }
+    ],
+    "recipes": [
+      {
+        "dish": "Stew and efo riro",
+        "steps": "Soak chunks 10 min, squeeze, fry in pepper base, simmer 15 min."
+      },
+      {
+        "dish": "Jollof rice",
+        "steps": "Add soaked chunks with the tomato base so they take the flavour."
+      },
+      {
+        "dish": "Suya-style skewers",
+        "steps": "Coat in yaji spice and oil, grill until crisp at the edges."
+      }
+    ],
+    "feedback_summary": {
+      "tasters": 0,
+      "liked_pct": null,
+      "can_cook_pct": null,
+      "would_buy_pct": null
+    }
+  },
+  "LAG-FAM-SUP": {
+    "place_id": "LAG-FAM-SUP",
+    "awareness_gap": "low",
+    "lens": "cancer",
+    "message": "Good protein for every pot.",
+    "activities": [
+      {
+        "title": "In-store tasting",
+        "description": "Two Saturday tastings near the meat aisle.",
+        "effort": "low"
+      },
+      {
+        "title": "Recipe card at the shelf",
+        "description": "A simple card showing three familiar dishes.",
+        "effort": "very_low"
+      },
+      {
+        "title": "Bundle with rice",
+        "description": "A small discount when bought with rice or tomato paste.",
+        "effort": "medium"
+      }
+    ],
+    "recipes": [
+      {
+        "dish": "Stew and efo riro",
+        "steps": "Soak chunks 10 min, squeeze, fry in pepper base, simmer 15 min."
+      },
+      {
+        "dish": "Jollof rice",
+        "steps": "Add soaked chunks with the tomato base so they take the flavour."
+      },
+      {
+        "dish": "Suya-style skewers",
+        "steps": "Coat in yaji spice and oil, grill until crisp at the edges."
+      }
+    ],
+    "feedback_summary": {
+      "tasters": 0,
+      "liked_pct": null,
+      "can_cook_pct": null,
+      "would_buy_pct": null
+    }
+  },
+  "ABJ-STU-CAN": {
+    "place_id": "ABJ-STU-CAN",
+    "awareness_gap": "medium",
+    "lens": "protein",
+    "message": "Good protein for every pot.",
+    "activities": [
+      {
+        "title": "Market tasting stand",
+        "description": "Cook stew with soy chunks at the stall; give free tastes.",
+        "effort": "low"
+      },
+      {
+        "title": "Partner with food vendors",
+        "description": "Supply 2 buka owners for a week; they serve it in one dish.",
+        "effort": "low"
+      },
+      {
+        "title": "Hausa recipe cards",
+        "description": "Simple pictures + Hausa text, handed out with every pack.",
+        "effort": "very_low"
+      }
+    ],
+    "recipes": [
+      {
+        "dish": "Stew and efo riro",
+        "steps": "Soak chunks 10 min, squeeze, fry in pepper base, simmer 15 min."
+      },
+      {
+        "dish": "Jollof rice",
+        "steps": "Add soaked chunks with the tomato base so they take the flavour."
+      },
+      {
+        "dish": "Suya-style skewers",
+        "steps": "Coat in yaji spice and oil, grill until crisp at the edges."
+      }
+    ],
+    "feedback_summary": {
+      "tasters": 0,
+      "liked_pct": null,
+      "can_cook_pct": null,
+      "would_buy_pct": null
+    }
+  }
+}
