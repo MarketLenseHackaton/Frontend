@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Cell } from "recharts";
-import { ShieldCheck, ExternalLink } from "lucide-react";
 import { api } from "../api/client";
 import { useApi } from "../hooks/useApi";
 import PageIntro from "../components/PageIntro";
@@ -12,6 +11,7 @@ import { SkeletonBlock } from "../components/Skeleton";
 import { areaLabel, formatNumber, levelLabel } from "../utils/format";
 
 const placeLabel = (p, dupes) => (dupes.has(p.name) ? `${p.name} · ${p.segment}` : p.name);
+const hasValue = (v) => v !== null && v !== undefined && v !== "";
 
 export default function HealthData() {
   const places = useApi(() => api.places(), []);
@@ -24,7 +24,7 @@ export default function HealthData() {
   const detail = useApi(() => (selectedId ? api.place(selectedId) : Promise.resolve(null)), [selectedId]);
   const d = detail.data;
 
-  // Names that appear more than once (e.g. Abuja) get their segment added so chips stay unique.
+  // Names that appear more than once (e.g. Abuja) get their segment added so tabs stay unique.
   const dupes = useMemo(() => {
     const count = {};
     (places.data || []).forEach((p) => { count[p.name] = (count[p.name] || 0) + 1; });
@@ -38,8 +38,8 @@ export default function HealthData() {
 
   return (
     <>
-      <PageIntro eyebrow="Health & nutrition" title="Health data by place" right={<DemoBadge>Place values are demonstration data</DemoBadge>}>
-        Where protein deficiency is reported, where colorectal cancer and processed-meat intake are high, and how many people live there.
+      <PageIntro title="Health data by place" right={<DemoBadge />}>
+        Protein need, the processed-meat signal, and how many people live in each place.
       </PageIntro>
 
       <ErrorBox message={places.error} onRetry={places.reload} />
@@ -60,65 +60,61 @@ export default function HealthData() {
       ) : d ? (
         <>
           <div className={`tiles four ${detail.loading ? "is-updating" : ""}`}>
-            <Tile label="Population" value={formatNumber(d.population)} sub="NBS estimate · verify year" />
+            <Tile label="Population" value={formatNumber(d.population)} sub="US Census Bureau estimate" />
             <Tile label="Area type" value={areaLabel(d.area_type)} sub={d.state ? `${d.state} State` : ""} />
-            <Tile label="Demand signal" value={`${d.demand ?? "—"}/100`} sub="Surveys + interviews"><LabelChip label={d.label_demand} /></Tile>
-            <Tile label="Alt-protein businesses" value={`${d.registered ?? "—"}`} sub={`registered of ${d.capacity ?? "—"} slots`} />
+            <Tile label="Demand" value={`${d.demand ?? "—"}/100`} sub="Google Trends + interviews"><LabelChip label={d.label_demand} /></Tile>
+            <Tile label="Alt-protein businesses" value={`${d.registered ?? "—"}`} sub={`of ${d.capacity ?? "—"} slots`} />
           </div>
 
           <div className="two-col">
             <section className="panel">
-              <h3 className="panel-title">Protein deficiency <span className="place-tag">{placeLabel(d, dupes)}</span></h3>
+              <h3 className="panel-title">Protein need <span className="place-tag">{placeLabel(d, dupes)}</span></h3>
               <div className="highlight">
                 <div>
-                  <span>Protein deficiency index</span>
+                  <span>Protein need, 0 to 100</span>
                   <b>{d.protein_deficiency ?? "No data"}</b>
-                  <small>0–100</small>
                   <LabelChip label={d.label_health} />
                 </div>
               </div>
-              <h4>Protein deficiency index, all places</h4>
+              <h4>All places</h4>
               <div className="chart-box">
                 <ResponsiveContainer width="100%" height={Math.max(220, chart.length * 30)}>
                   <BarChart data={chart} layout="vertical" margin={{ left: 8, right: 28, top: 4, bottom: 4 }}>
-                    <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#E6EBE7" />
+                    <CartesianGrid horizontal={false} stroke="#EEEEEA" />
                     <XAxis type="number" domain={[0, 100]} hide />
-                    <YAxis dataKey="name" type="category" width={150} tick={{ fontSize: 12, fill: "#3d4a43" }} />
-                    <Tooltip cursor={{ fill: "rgba(27,127,76,0.06)" }} formatter={(v) => [v ?? "No data", "Index"]} />
-                    <Bar dataKey="value" radius={[0, 5, 5, 0]} label={{ position: "right", fontSize: 11, fill: "#3d4a43" }}>
-                      {chart.map((c) => <Cell key={c.id} fill={c.id === selectedId ? "#1B7F4C" : "#9CC9B0"} />)}
+                    <YAxis dataKey="name" type="category" width={150} tick={{ fontSize: 12, fill: "#44443F" }} axisLine={false} tickLine={false} />
+                    <Tooltip cursor={{ fill: "rgba(0,0,0,0.03)" }} formatter={(v) => [v ?? "No data", "Protein need"]} />
+                    <Bar dataKey="value" radius={0} label={{ position: "right", fontSize: 11, fill: "#44443F" }}>
+                      {chart.map((c) => <Cell key={c.id} fill={c.id === selectedId ? "#1B7F4C" : "#C9D6CD"} />)}
                     </Bar>
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-              <div className="context-box">
-                <b>National context</b>
-                <p>45% of Nigerians do not eat protein daily; average intake is 45.4 g a day against an FAO minimum of 53.8 g. Nigerian Protein Deficiency Report, Ipsos, 2020 · national survey, never shown as a local figure.</p>
-              </div>
+              <p className="muted small">
+                Estimated from under-5 mortality and poverty (US Census Bureau) until NDHS stunting figures are added.
+              </p>
             </section>
 
             <section className="panel">
-              <h3 className="panel-title">Colorectal cancer &amp; processed meat <span className="place-tag">{placeLabel(d, dupes)}</span></h3>
-              <div className="highlight purple">
+              <h3 className="panel-title">Processed meat and colorectal cancer <span className="place-tag">{placeLabel(d, dupes)}</span></h3>
+              <div className="highlight">
                 <div>
-                  <span>Colorectal cancer index</span>
-                  <b className={d.crc_index === null || d.crc_index === undefined ? "smaller" : ""}>{d.crc_index ?? "No data"}</b>
-                  <small>{d.crc_index === null || d.crc_index === undefined ? "No registry data for this place" : "0–100 · registry + processed-meat intake"}</small>
+                  <span>Processed-meat signal, 0 to 100</span>
+                  <b className={hasValue(d.crc_index) ? "" : "smaller"}>{hasValue(d.crc_index) ? d.crc_index : "No data"}</b>
+                  <small>{hasValue(d.crc_index) ? "Fast food, supermarket and butcher outlets per person, from OpenStreetMap" : "No outlet data for this place"}</small>
                 </div>
               </div>
               <div className="who-box">
-                <b>What WHO says</b>
-                <p>WHO’s cancer agency (IARC) classifies processed meat as carcinogenic to humans (Group 1) and red meat as probably carcinogenic (Group 2A), mainly linked to colorectal cancer. IARC Monographs, 2015.</p>
-                <small>This is not saying all animal protein is unsafe, or that alt-protein prevents cancer.</small>
+                <p>The WHO cancer agency (IARC) classifies processed meat as a cause of colorectal cancer (Group 1) and red meat as a probable cause (Group 2A). IARC Monographs, 2015.</p>
+                <small>That does not make all animal protein unsafe, and no plant protein here claims to prevent cancer.</small>
               </div>
-              {d.notes && <p className="notes"><b>Notes:</b> {d.notes}</p>}
+              {d.notes && <p className="notes">{d.notes}</p>}
               <h4>Sources for this place</h4>
               <ul className="source-list">
                 {(d.sources || []).map((s) => (
                   <li key={s.id}>
-                    <span className="chip">{levelLabel(s.level)}</span>
-                    <span>{s.title} · {s.publisher}{s.year ? `, ${s.year}` : ""}</span>
-                    {s.url && <a href={s.url} target="_blank" rel="noreferrer" aria-label={`Open ${s.title}`}><ExternalLink size={13} /></a>}
+                    <span className="muted">{levelLabel(s.level)}</span>
+                    <span>{s.url ? <a href={s.url} target="_blank" rel="noreferrer">{s.title}</a> : s.title} · {s.publisher}{s.year ? `, ${s.year}` : ""}</span>
                   </li>
                 ))}
                 {(!d.sources || d.sources.length === 0) && <li className="muted">No sources listed.</li>}
@@ -129,11 +125,11 @@ export default function HealthData() {
       ) : null}
 
       <section className="panel">
-        <h3 className="section-label">What data we actually have</h3>
+        <h3 className="section-label">How solid each number is</h3>
         <div className="table-scroll">
           <table>
             <thead>
-              <tr><th>Place</th><th>Demand</th><th>Health need</th><th>Meat cost</th><th>Cancer data</th><th>Population</th></tr>
+              <tr><th>Place</th><th>Demand</th><th>Health need</th><th>Meat cost</th><th>Processed-meat signal</th><th>Population</th></tr>
             </thead>
             <tbody>
               {(places.data || []).map((p) => (
@@ -142,7 +138,7 @@ export default function HealthData() {
                   <td><LabelChip label={p.label_demand} /></td>
                   <td><LabelChip label={p.label_health} /></td>
                   <td><LabelChip label={p.label_meat_cost} /></td>
-                  <td>{p.crc_index === null || p.crc_index === undefined ? <LabelChip label="missing" /> : <span className="chip label-registry">Registry-based</span>}</td>
+                  <td>{hasValue(p.crc_index) ? p.crc_index : <LabelChip label="missing" />}</td>
                   <td>{formatNumber(p.population)}</td>
                 </tr>
               ))}
@@ -151,10 +147,9 @@ export default function HealthData() {
         </div>
       </section>
 
-      <div className="dark-note">
-        <ShieldCheck size={18} /> Health data shows where a need has been reported. It is not proof people will buy and not a diagnosis.
-        All data is grouped by place, never by person. National figures are never shown as local ones.
-      </div>
+      <p className="dark-note">
+        Health data shows where a need is reported. It is not proof people will buy, and not a diagnosis. Everything is grouped by place, never by person.
+      </p>
     </>
   );
 }

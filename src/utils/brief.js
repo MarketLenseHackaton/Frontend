@@ -36,7 +36,7 @@ export function downloadBrief({ result, selected, product, basedIn, lensText, ch
 </style></head><body>
 <div class="top"><span>MARKETLENS · MARKET BRIEF</span><span>Generated ${esc(today)} · Data as of ${esc(result.meta?.data_as_of)}</span></div>
 <h1>${esc(product?.name || "Your product")}</h1>
-<div style="font-size:13px;color:#5d6b63">${esc((product?.uses || []).join(", "))} · Health lens: ${esc(lensText)} · Based in ${esc(basedIn)}</div>
+<div style="font-size:13px;color:#5d6b63">${esc((product?.uses || []).join(", "))} · Health lens: ${esc(lensText)}${basedIn ? ` · Based in ${esc(basedIn)}` : ""}</div>
 <h2>TOP 3 MARKETS TO TEST FIRST</h2>
 ${top3.map(card).join("")}
 <div class="two">

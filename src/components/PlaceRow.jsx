@@ -15,8 +15,8 @@ export default function PlaceRow({ item, selected, onSelect }) {
       <span className="place-name">
         <span className="place-title">
           <b>{item.name}</b>
-          {item.is_rural ? <span className="area-tag rural">Rural · viable</span> : <span className="area-tag">{areaLabel(item.area_type)}</span>}
-          {item.fair_share_added && <span className="area-tag fair">fair-share</span>}
+          <span className={`area-tag ${item.is_rural ? "rural" : ""}`}>{areaLabel(item.area_type)}</span>
+          {item.fair_share_added && <span className="area-tag fair">added by fair share</span>}
         </span>
         <em>{item.segment} · {channelLabel(item.channel)}</em>
       </span>
@@ -27,7 +27,7 @@ export default function PlaceRow({ item, selected, onSelect }) {
       </span>
       <strong className="place-score">
         {item.scores?.total ?? "—"}
-        <small>score</small>
+        <small>/ 100</small>
       </strong>
     </button>
   );

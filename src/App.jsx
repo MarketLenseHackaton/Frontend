@@ -34,8 +34,8 @@ export default function App() {
             </Routes>
           </main>
           <footer className="footer">
-            MarketLens · Hack the Fork Nigeria 2026
-            <span>Data shown must be verified before business decisions. Sources are listed in the Evidence tab.</span>
+            <span>MarketLens · Hack the Fork Nigeria 2026</span>
+            <Link to="/evidence">Sources and limits</Link>
           </footer>
         </div>
       </ToastProvider>

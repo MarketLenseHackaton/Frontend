@@ -16,8 +16,6 @@ import { SkeletonRows } from "../components/Skeleton";
 import { LENSES, channelLabel, lensLabel } from "../utils/format";
 import { downloadBrief } from "../utils/brief";
 
-const STATES = ["Abuja (FCT)", "Kano", "Kaduna", "Lagos", "Oyo", "Rivers", "Bauchi", "Sokoto"];
-
 export default function MarketFinder() {
   const toast = useToast();
   const products = useApi(() => api.products(), []);
@@ -28,17 +26,11 @@ export default function MarketFinder() {
   const [lens, setLens] = useState("both");
   const [fairShare, setFairShare] = useState(false);
 
-  // Kept in state, sent with claims
-  const [basedIn, setBasedIn] = useState("Abuja (FCT)");
-  const [businessName, setBusinessName] = useState("");
-  const [nafdacNo, setNafdacNo] = useState("");
-
   // Result
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
-  const [claiming, setClaiming] = useState(false);
 
   // If the product list arrives and our default id isn't in it, pick the first product.
   useEffect(() => {
@@ -93,28 +85,6 @@ export default function MarketFinder() {
 
   const setWeight = (key) => (value) => setWeights((w) => ({ ...w, [key]: value }));
 
-  async function handleClaim() {
-    if (!selected) return;
-    setClaiming(true);
-    try {
-      const capacity = await api.claim({
-        place_id: selected.id,
-        business_name: businessName.trim() || "Unnamed business",
-        nafdac_no: nafdacNo.trim(),
-      });
-      // Update the panel straight away with what the backend returned…
-      setResult((r) => r && { ...r, ranked: r.ranked.map((x) => (x.id === selected.id ? { ...x, capacity: { ...x.capacity, ...capacity } } : x)) });
-      toast(`Slot claimed in ${selected.name}. ${capacity?.slots_left ?? "—"} left.`);
-      // …then re-rank quietly, because a place that just became full must leave the list.
-      runRank(JSON.stringify(body), { quiet: true });
-    } catch (e) {
-      toast(friendlyError(e), "error");
-      if (e?.code === "place_full") runRank(JSON.stringify(body), { quiet: true });
-    } finally {
-      setClaiming(false);
-    }
-  }
-
   return (
     <>
       <div className="product-strip">
@@ -130,39 +100,25 @@ export default function MarketFinder() {
           <span>Used in</span>
           <div className="field-static">{product?.uses?.length ? product.uses.join(", ") : "—"}</div>
         </div>
-        <label className="field">
-          <span>Based in</span>
-          <select value={basedIn} onChange={(e) => setBasedIn(e.target.value)}>
-            {STATES.map((s) => <option key={s}>{s}</option>)}
-          </select>
-        </label>
-        <label className="field">
-          <span>Business name</span>
-          <input value={businessName} onChange={(e) => setBusinessName(e.target.value)} placeholder="e.g. SoyGood Foods" />
-        </label>
-        <label className="field">
-          <span>NAFDAC no.</span>
-          <input value={nafdacNo} onChange={(e) => setNafdacNo(e.target.value)} placeholder="e.g. A1-1234" />
-        </label>
       </div>
       {products.error && <ErrorBox message={products.error} onRetry={products.reload} />}
 
-      <PageIntro eyebrow="Market discovery" title="Find your best market in 3 checks" right={<DemoBadge />}>
-        Compare where people may want your product, where a health need is reported, and where meat is expensive.
+      <PageIntro title="Find your best market" right={<DemoBadge />}>
+        Set how much each check matters. Places are ranked on demand, health need and meat cost.
       </PageIntro>
 
       <div className="checks-grid">
         <CheckCard number="1" title="Demand" tone="blue" weight={weights.demand} onWeight={setWeight("demand")}
-          description="Where people actually want this product: surveys, interviews, search interest and what already sells." />
+          description="Do people here want it? Google search interest plus our own interviews." />
         <CheckCard number="2" title="Health need" tone="green" weight={weights.health} onWeight={setWeight("health")}
-          description="Places where protein deficiency or colorectal cancer and processed-meat concerns are reported.">
+          description="Protein deficiency, or a lot of processed meat (linked to colorectal cancer by the WHO).">
           <div className="lens-row">
             <span className="check-weight-label">Health lens</span>
             <Segmented options={LENSES} value={lens} onChange={setLens} tone="green" small ariaLabel="Health lens" />
           </div>
         </CheckCard>
         <CheckCard number="3" title="Affordability" tone="orange" weight={weights.affordability} onWeight={setWeight("affordability")}
-          description="Where meat and processed meat are too expensive for people, so a plant protein makes sense." />
+          description="Is meat too expensive for people here? Then a cheaper protein has room." />
       </div>
 
       <EquityStrip
@@ -186,7 +142,7 @@ export default function MarketFinder() {
           )}
           {result?.meta && (
             <p className="meta-line">
-              Lens: {lensLabel(result.meta.lens)} · {result.meta.n_simulations?.toLocaleString?.() ?? result.meta.n_simulations} simulations · seed {result.meta.seed} · data as of {result.meta.data_as_of}
+              Lens: {lensLabel(result.meta.lens)} · {result.meta.n_simulations?.toLocaleString?.() ?? result.meta.n_simulations} simulations · seed {result.meta.seed}{result.meta.data_as_of ? ` · data as of ${result.meta.data_as_of}` : ""}
             </p>
           )}
         </div>
@@ -195,9 +151,7 @@ export default function MarketFinder() {
         ) : (
           <DetailsPanel
             item={selected}
-            claiming={claiming}
-            onClaim={handleClaim}
-            onDownload={() => downloadBrief({ result, selected, product, basedIn, lensText: lensLabel(lens), channelLabel })}
+            onDownload={() => downloadBrief({ result, selected, product, lensText: lensLabel(lens), channelLabel })}
           />
         )}
       </div>
@@ -205,8 +159,7 @@ export default function MarketFinder() {
       <FullPlaces full={full} />
 
       <p className="disclaimer">
-        Health data shows where a need is reported, not proof people will buy; no claim is made that any product prevents or treats disease.
-        Scores rank places against each other, not sales.
+        Scores rank places against each other. They are not sales forecasts, and no product here claims to prevent or treat disease.
       </p>
     </>
   );

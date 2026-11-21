@@ -1,0 +1,133 @@
+/* ─────────────────────────────────────────────────────────────
+   plain.css — loads AFTER styles.css and overrides it.
+   Goal: look like a working tool, not a generated template.
+   One font, square-ish corners, no tinted boxes, no pills,
+   no coloured stripes, no shadows, no shimmer.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  --radius: 6px;
+  --bg: #F7F7F5;
+  --border: #E2E2DD;
+  --ink: #1A1A18;
+  --ink-2: #44443F;
+  --muted: #6E6E68;
+  --font-head: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-text: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body { font-size: 15px; }
+h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.005em; }
+
+/* ── Header: plain wordmark ── */
+.topbar { background: #fff; backdrop-filter: none; height: 58px; }
+.topbar.topbar--regulator { background: var(--navy); border-bottom-color: var(--navy); }
+.brand--light, .brand-sub { color: #fff; }
+.brand-sub { font-weight: 500; opacity: .75; margin-left: 6px; }
+.brand { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+.nav-link { border-radius: 0; padding: 0 12px; min-height: 58px; border-bottom: 2px solid transparent; }
+.nav-link:hover { background: none; color: var(--ink); }
+.nav-link.active { background: none; color: var(--ink); border-bottom-color: var(--green); }
+.outline-link { border-radius: var(--radius); border-width: 1px; }
+
+/* ── Page titles: no uppercase eyebrow ── */
+.page-intro h1 { font-size: 26px; margin: 0 0 4px; }
+.eyebrow, .overline { display: none; }
+.section-label { text-transform: none; letter-spacing: 0; font-size: 16px; font-weight: 600; color: var(--ink); }
+
+/* ── Cards and panels: flat ── */
+.panel, .tile, .product-strip, .details-panel, .check-card, .place-row, .empty-state, .full-box {
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+.tile-value { font-size: 26px; font-weight: 600; }
+
+/* ── 3 checks: no coloured top stripe, no number circle ── */
+.check-card { border-top: 1px solid var(--border); }
+.check-number { width: auto; height: auto; background: none; color: var(--muted); border-radius: 0; font-size: 15px; font-weight: 600; }
+.check-title h3 { font-size: 17px; }
+
+/* ── Segmented buttons: quieter ── */
+.segmented { border-radius: var(--radius); padding: 3px; background: #F1F1EE; }
+.segmented button { border-radius: 4px; min-height: 40px; font-weight: 500; }
+.segmented button.selected { box-shadow: none; font-weight: 600; }
+
+/* ── Ranked list ── */
+.rank { width: auto; height: auto; background: none; border: 0; border-radius: 0; color: var(--muted); font-size: 18px; font-weight: 600; }
+.rank.first { background: none; color: var(--ink); }
+.place-row.chosen { border: 1px solid var(--border); border-left: 3px solid var(--green); padding: 12px 14px 12px 12px; box-shadow: none; }
+.place-row.rest { opacity: 1; background: #fff; }
+.place-score { font-size: 24px; font-weight: 600; color: var(--ink); }
+.place-row.rest .place-score { font-size: 24px; color: var(--ink); }
+.scorebar .track, .scorebar .track i, .capacity-track, .capacity-track i, .progress, .progress i { border-radius: 2px; }
+
+/* Tags become plain small text, not pills */
+.area-tag, .area-tag.rural, .area-tag.fair, .place-tag {
+  background: none; border: 0; padding: 0; border-radius: 0;
+  font-size: 12.5px; font-weight: 500; color: var(--muted);
+}
+.area-tag.rural { color: var(--orange); }
+.area-tag.fair { color: var(--green); }
+
+/* ── Details panel ── */
+.detail-kicker { font-size: 13px; color: var(--muted); gap: 6px; }
+.rank-pill { background: none; color: var(--muted); padding: 0; border-radius: 0; font-weight: 500; font-size: 13px; }
+.details-panel h2 { font-size: 22px; }
+.score-tile { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); }
+.score-tile span { color: var(--muted); }
+.score-tile b { font-size: 22px; font-weight: 600; }
+.total-line b { font-size: 20px; color: var(--ink); }
+.uncertain { background: none; padding: 0; color: var(--muted); }
+.test-box { background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--green); border-radius: var(--radius); }
+
+/* ── Buttons ── */
+.primary-btn, .secondary-btn { border-radius: var(--radius); border-width: 1px; min-height: 42px; }
+
+/* ── Chips: small text labels with a thin border, no fills ── */
+.chip, .label-measured, .label-estimated, .label-assumed, .label-missing, .label-registry,
+.conf-high, .conf-medium, .conf-low, .status-open.chip, .status-nearly_full.chip, .status-full.chip, .lens-chip {
+  background: none; border-radius: 3px; font-weight: 500; font-size: 12px; padding: 1px 6px;
+}
+.label-measured, .conf-high, .status-open.chip { color: #1B6B43; border-color: #BFD9C9; }
+.label-estimated { color: #2F5F95; border-color: #C9D7E8; }
+.label-assumed, .conf-medium, .status-nearly_full.chip { color: #8A5317; border-color: #E5CFB6; }
+.label-missing { color: #77776F; border-color: #DDDDD6; }
+.label-registry { color: #5B4A88; border-color: #D8D0E8; }
+.conf-low, .status-full.chip { color: var(--red); border-color: #E8C4BF; }
+.lens-chip { font-size: 14px; padding: 3px 8px; }
+
+/* ── Place pickers: underline tabs instead of pills ── */
+.pill-tabs { gap: 0; border-bottom: 1px solid var(--border); }
+.pill-tabs button, .pill-tabs.compact button {
+  border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: none;
+  min-height: 42px; padding: 0 12px; margin-bottom: -1px; color: var(--muted);
+}
+.pill-tabs button:hover { color: var(--ink); }
+.pill-tabs button.active { background: none; color: var(--ink); border-bottom-color: var(--green); }
+.regulator .pill-tabs button.active { background: none; color: var(--ink); border-bottom-color: var(--navy); }
+
+/* ── Health page: no tinted highlight boxes ── */
+.highlight, .highlight.purple { background: none; border: 0; padding: 0; }
+.highlight b { font-size: 30px; font-weight: 600; }
+.context-box, .who-box { background: none; border-left: 3px solid var(--border); border-radius: 0; padding: 2px 0 2px 12px; }
+.dark-note { background: none; color: var(--muted); border-top: 1px solid var(--border); border-radius: 0; padding: 12px 0 0; font-size: 13px; }
+
+/* ── Tables: normal-case headers ── */
+th { text-transform: none; letter-spacing: 0; font-size: 13px; font-weight: 600; }
+
+/* ── Discover ── */
+.big-word { font-size: 24px; font-weight: 600; }
+.quote { font-size: 20px; color: var(--ink); font-weight: 600; }
+.activity-card { border-radius: var(--radius); }
+.activity-card.done { background: #fff; color: var(--green); }
+.recipe { padding: 4px 0; }
+
+/* ── Evidence ── */
+.method-card b { font-size: 15px; }
+
+/* ── Small stuff ── */
+.equity-pill { border-radius: var(--radius); }
+.error-box, .alert-box, .notice { border-radius: var(--radius); }
+.toast { border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+.skeleton { animation: none; background: #EEEEEA; border-radius: var(--radius); }
+.footer { background: none; }

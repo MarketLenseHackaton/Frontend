@@ -1,8 +1,8 @@
-export default function PageIntro({ eyebrow, title, children, right }) {
+/** Page title + one line of intro. (The old uppercase "eyebrow" label is gone.) */
+export default function PageIntro({ title, children, right }) {
   return (
     <div className="page-intro">
       <div>
-        {eyebrow && <div className="eyebrow">{eyebrow}</div>}
         <h1>{title}</h1>
         {children && <p>{children}</p>}
       </div>

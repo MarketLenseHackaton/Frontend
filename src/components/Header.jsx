@@ -1,5 +1,5 @@
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { Search, Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const LINKS = [
@@ -20,12 +20,10 @@ export default function Header() {
     return (
       <header className="topbar topbar--regulator">
         <Link to="/regulator" className="brand brand--light">
-          <span className="brand-mark brand-mark--light"><Search size={17} /></span>
-          MarketLens <span className="brand-sub">· Regulator view</span>
+          MarketLens <span className="brand-sub">Regulator</span>
         </Link>
         <div className="topbar-right">
-          <span className="signed-in">Signed in: [Agency / association name]</span>
-          <Link to="/" className="outline-link outline-link--light">Business app <ArrowUpRight size={15} /></Link>
+          <Link to="/" className="outline-link outline-link--light">Back to business view</Link>
         </div>
       </header>
     );
@@ -33,17 +31,14 @@ export default function Header() {
 
   return (
     <header className="topbar">
-      <Link to="/" className="brand">
-        <span className="brand-mark"><Search size={17} /></span>
-        MarketLens
-      </Link>
+      <Link to="/" className="brand">MarketLens</Link>
       <nav className={`main-nav ${open ? "open" : ""}`} aria-label="Main">
         {LINKS.map((l) => (
           <NavLink key={l.to} to={l.to} end={l.end} className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
             {l.label}
           </NavLink>
         ))}
-        <NavLink to="/regulator" className="outline-link">Regulator view <ArrowUpRight size={15} /></NavLink>
+        <NavLink to="/regulator" className="outline-link">Regulator</NavLink>
       </nav>
       <button type="button" className="mobile-menu" onClick={() => setOpen(!open)} aria-label="Toggle navigation" aria-expanded={open}>
         {open ? <X /> : <Menu />}
